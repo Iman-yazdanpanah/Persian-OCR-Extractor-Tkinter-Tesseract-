@@ -8,7 +8,6 @@ The app supports:
 - 🔍 Extracting text using Tesseract  
 - 📋 Copy extracted text to clipboard  
 - 💾 Save extracted text as `.txt`  
-- 🌙 Dark mode UI  
 - ❗ Friendly error messages
 
 ---
@@ -47,7 +46,7 @@ Default installation path:
 C:\Program Files\Tesseract-OCR\
 ```
 
-Make sure this folder contains language files such as:
+Make sure this folder contains language files such as(inside `tessdata` folder):
 
 ```
 eng.traineddata
@@ -85,7 +84,11 @@ If you'd like to generate a Windows executable:
 pip install pyinstaller
 pyinstaller --noconsole --onefile main.py
 ```
+Or:
 
+```bash
+pyinstaller --onefile --noconsole --add-binary "C:\Program Files\Tesseract-OCR\tesseract.exe;." --add-data "C:\Program Files\Tesseract-OCR\tessdata;tessdata" persian_ocr.py
+```
 Your EXE will be inside:
 
 ```
